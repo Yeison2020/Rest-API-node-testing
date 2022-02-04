@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, resp) => {
   console.log("test");
-  resp.send("Welcome to home page");
+  resp.send("Welcome  -- Please Home page hereee");
 });
 // Here is how I set my staring routes check changing the values.
 
