@@ -1,4 +1,5 @@
 import express from "express";
+import { v4 as uuidv4 } from "uuid";
 
 const router = express.Router();
 const users = [
@@ -19,19 +20,22 @@ const users = [
     age: 22,
   },
 ];
-router.get("/", (req, resp) => {
+router.get("/", (req, res) => {
   console.log(users);
-
-  resp.send(users);
+  res.send(users);
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
   const user = req.body;
-  users.push(user);
-  console.log(users);
-  console.log("POST have been reached");
-  res.send("POST have been reached");
+  // Here I'm creating a new copy of the user Object, but adding a new ID to it.
+  // But not mutauting my orginal Object Important part
+  // This is really importnt part continue adding user with differents ID
+  const userWithId = { ...user, id: uuidv4() };
+  users.push(userWithId);
+  res.send(`User with the name of ${user.name} added to the database`);
+  console.log(userWithId);
 });
+
+// router.get("/id", (req, res) => {});
 
 export default router;
