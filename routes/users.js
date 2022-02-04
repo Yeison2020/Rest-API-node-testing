@@ -7,11 +7,24 @@ const users = [
     lastname: "casado",
     age: 26,
   },
+  {
+    name: "Yeuri",
+    lastname: "casado",
+    age: 23,
+  },
+
+  {
+    name: "Deivi",
+    lastname: "casado",
+    age: 22,
+  },
 ];
-router.get("/users", (req, resp) => {
+router.get("/", (req, resp) => {
   console.log(users);
 
   resp.send(users);
 });
+
+router.post("/");
 
 export default router;
