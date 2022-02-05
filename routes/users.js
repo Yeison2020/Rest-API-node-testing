@@ -7,6 +7,7 @@ import {
   updateOneUser,
 } from "./controllers/users.js";
 
+// Using controllers to separate users functionality with functions
 const router = express.Router();
 
 router.get("/", getUsers);
